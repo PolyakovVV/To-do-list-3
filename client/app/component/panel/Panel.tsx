@@ -6,7 +6,7 @@ import useModal from "../../hook/useModal";
 import Image from 'next/image'
 import s from './Panel.module.css'
 //import Modal from '../Modal/Modal'
-import React, { ReactNode, createContext, useContext, useState } from 'react';
+import React, { ReactNode, createContext, useContext, useState, useEffect } from 'react';
 import { document } from "postcss";
 import TaskToDo from "../TaskToDo/TaskToDo";
 import ModalSave from "../Modal/ModalSave";
@@ -25,18 +25,20 @@ export default function Panel() {
         {id:2, text:"Task 2", time: '12:10:00', performance:false},
     ]);
     //-------------
+    //useEffect(() => {setTextTask})
 
     const { isOpen, toggle } = useModal();
     const [value,setValue] = useState('');
     const [name,setName] = useState('All');
-    
+
     const sortData = () =>{
         const a = textTask.sort((a,b)=>
         a.time>b.time ? 1:-1)
         console.log(a)
         setTextTask(a)
     }
-        
+    
+    
     return (
         <div >
             <div >
@@ -53,7 +55,7 @@ export default function Panel() {
                 </button>
 
 
-                <button className={s.panelData} onClick={() => sortData()}>
+                <button className={s.panelData} onClick={() => {sortData()}}>
                     <Image alt='data' src='arrows 1.svg' width={27} height={27} />
                     Data
                 </button>

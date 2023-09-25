@@ -6,7 +6,7 @@ import useModal from "../../hook/useModal";
 import Image from 'next/image'
 import s from './TaskToDo.module.css'
 //import Modal from '../Modal/Modal'
-import React, { ReactNode, createContext, useContext, useState } from 'react';
+import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import { document } from "postcss";
 import PopUp from "../PopUp/PopUp";
 
@@ -27,17 +27,22 @@ export default function TaskToDo (props:ModalType) {
     const [doIt, setDoIt] = useState(false)
     const { isOpen, toggle } = useModal();
     
+    
+    useEffect(()=>{
+        props.text1
+        
+    },[props.objTask])
+
     const F = () => {
         //doIt === true ? (props.setObjTask([...props.objTask, props.objTask[props.index].performance = true])) : (props.perfomance([props.objTask]));
-        const Ad = props.objTask.map((e,i)=>{ i === props.index ? e.performance===true ? e.performance=false:e.performance=true : e.performance ;
-            console.log(i) 
+        const Ad = props.objTask.map((e,i)=>{ i === props.index ? e.performance===true ? e.performance=false : e.performance=true : e.performance ;
         return e
-        } 
-             )
+        } )
              
-             console.log(props.index)    
-        console.log(Ad)
-        props.setObjTask(Ad)
+            console.log(props.index)    
+            console.log(Ad)
+            props.setObjTask(Ad)
+
     }
 
         return (
@@ -45,8 +50,8 @@ export default function TaskToDo (props:ModalType) {
             <div key={props.index}>
                     <div className={s.task}>
                         <button onClick={() => {setDoIt(doIt ? false: true),F()}}>
-                            {doIt ? (<Image alt='ok' src='Check_ring.svg' width={25} height={25} />):(<Image alt='ok' src='Group.svg' width={25} height={25} />)}
                             
+                            {props.objTask[props.index].performance ? (<Image alt='ok' src='Check_ring.svg' width={25} height={25} />):(<Image alt='ok' src='Group.svg' width={25} height={25} />)}
 
                         </button>
                         <div className={s.task1}>{props.text1}</div>

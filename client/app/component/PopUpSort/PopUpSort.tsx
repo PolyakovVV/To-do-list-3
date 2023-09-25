@@ -21,9 +21,10 @@ interface ModalType {
 export default function PopUpSort (props:ModalType) {
 
     const Done = () => {
-      const aa = props.objTask.sort((a,b) => {
-        b.performance ? 1 : -1; }
+      const aa = props.objTask.sort((a,b) => 
+        b.performance ? 1 : -1
         )
+        props.task(aa)
     }  
 
     return (
