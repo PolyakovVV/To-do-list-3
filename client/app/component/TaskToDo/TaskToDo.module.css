@@ -1,0 +1,23 @@
+.task {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 23px;
+    /*align-items: center;
+    justify-content: center;
+    /*gap: 23px;*/
+    /*width: 428px;
+    height: 33px;*/
+    width: 23vw;
+    height: 4vh;
+    /*top: 363px;
+    left: 831px;*/
+    border-radius: 10px;
+    background: rgba(147, 51, 234, 0.06);
+    
+}
+
+.task1 {
+    width: 428px;
+    height: 33px;   
+}
